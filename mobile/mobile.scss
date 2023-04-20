@@ -1,0 +1,11 @@
+.event-banner .wrap .banner-content {
+    padding: 8px;
+    a {
+        color: #fff;
+        font-weight: 600;
+        margin-left: 10px;
+    }
+}
+.event-banner .wrap .banner-content a::after {
+    content: " >";
+}

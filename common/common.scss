@@ -1,0 +1,22 @@
+.event-banner {
+    background-color: #452aea;
+    width: 100%;
+    color: #fff;
+
+    .wrap {
+        display: flex;
+        align-items: center;
+
+        .banner-content {
+            padding: 10px;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .banner-close .button {
+            padding: 5px;
+            background-color: #452aea;
+            color: #fff;
+        }
+    }
+}

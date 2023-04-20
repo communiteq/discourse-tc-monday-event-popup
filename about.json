@@ -1,0 +1,16 @@
+{
+  "name": "Event Banner",
+  "component": true,
+  "license_url": null,
+  "about_url": "https://www.communiteq.com/",
+  "authors": "richard@communiteq.com",
+  "theme_version": "1.0",
+  "minimum_discourse_version": "2.8.0",
+  "maximum_discourse_version": null,
+  "assets": {
+  },
+  "color_schemes": {
+  },
+  "modifiers": {
+  }
+}
