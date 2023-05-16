@@ -5,7 +5,6 @@ const cookie = require("discourse/lib/cookie").default;
 const { removeCookie } = require("discourse/lib/cookie")
 
 let cookieExpDate = moment().add(1, 'year').toDate(); 
-console.log(cookieExpDate);
 
 export default class EventBanner extends Component {
 
