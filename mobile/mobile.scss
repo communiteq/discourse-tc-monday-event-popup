@@ -1,9 +1,16 @@
-.event-banner .wrap .banner-content {
-    padding: 8px;
-    a {
-        color: #fff;
-        font-weight: 600;
-        margin-left: 10px;
+.event-banner .wrap {
+    .banner-content {
+        font-size: 13px;
+        text-align: left;
+        padding-left: 30px;
+        a {
+            color: #fff;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+    }
+    .banner-close {
+        padding-top: 4px;
     }
 }
 .event-banner .wrap .banner-content a::after {
