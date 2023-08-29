@@ -13,9 +13,14 @@
         }
 
         .banner-close .button {
-            padding: 5px;
+            padding-right: 5px;
             background-color: #452aea;
             color: #fff;
         }
     }
+    display: none;
+}
+
+.landing-page .event-banner {
+    display: block;
 }
