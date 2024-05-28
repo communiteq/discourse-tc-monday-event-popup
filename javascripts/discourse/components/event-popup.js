@@ -4,13 +4,13 @@ import { action } from '@ember/object';
 const cookie = require("discourse/lib/cookie").default;
 const { removeCookie } = require("discourse/lib/cookie")
 
-let cookieExpDate = moment().add(1, 'year').toDate(); 
+let cookieExpDate = moment().add(1, 'year').toDate();
 
-export default class EventBanner extends Component {
+export default class EventPopup extends Component {
 
     @tracked closed = false;
 
-    get showEventBanner() {  
+    get showEventBanner() {
         var closed_cookie = cookie("banner_closed");
         if (closed_cookie) {
             var cookieValue = JSON.parse(closed_cookie);

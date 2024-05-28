@@ -1,12 +1,12 @@
 {{#if showEventBanner}}
-    <div class="event-banner">
+    <div class="event-popup">
         <div class="wrap">
-            <div class="banner-content">
+            <div class="event-popup-content">
             {{contentText}}
             <a href="{{buttonLink}}">{{buttonText}}</a>
 
             </div>
-            <div class="banner-close">
+            <div class="event-popup-close">
                 <a {{on "click" this.closeBanner}} class="button">
                     <svg class="fa d-icon d-icon-times svg-icon svg-node" aria-hidden="true"><use xlink:href="#times"></use></svg>
                 </a>

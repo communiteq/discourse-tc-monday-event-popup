@@ -1,4 +1,4 @@
-.event-banner {
+.event-popup {
     background-color: #452aea;
     width: 100%;
     color: #fff;
@@ -6,13 +6,13 @@
     .wrap {
         display: flex;
 
-        .banner-content {
+        .event-popup-content {
             padding: 10px;
             flex-grow: 1;
             text-align: center;
         }
 
-        .banner-close .button {
+        .event-popup-close .button {
             padding-right: 5px;
             background-color: #452aea;
             color: #fff;
@@ -21,6 +21,6 @@
     display: none;
 }
 
-.landing-page .event-banner {
+.landing-page .event-popup {
     display: block;
 }
