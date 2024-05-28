@@ -1,17 +1,22 @@
+popup_enabled:
+  type: bool
+  default: false
+  description:
+    en: "Enable the event popup"
 content_text:
   type: string
   default: "Catch us  next at the upcoming community event happening 21 March"
-  description: 
+  description:
     en: 'Text for the event banner.'
 button_text:
   type: string
   default: "Join us"
-  description: 
+  description:
     en: 'Button text for the event banner.'
 button_link:
   type: string
   default: "/"
-  description: 
+  description:
     en: 'Button Link for the event banner.'
 update_version:
   type: string
