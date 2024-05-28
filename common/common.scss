@@ -1,26 +1,54 @@
-.event-popup {
-    background-color: #452aea;
-    width: 100%;
-    color: #fff;
+.event-popup-div {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  z-index: 1000;
+  max-width: 500px;
+  width: 100%;
+  .wrapper {
+    display: flex;
+    margin: 0;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
 
-    .wrap {
-        display: flex;
+  .event-popup-content {
+    text-align: center;
+    margin: 20px 20px;
 
-        .event-popup-content {
-            padding: 10px;
-            flex-grow: 1;
-            text-align: center;
-        }
-
-        .event-popup-close .button {
-            padding-right: 5px;
-            background-color: #452aea;
-            color: #fff;
-        }
+    .cta-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #9370db;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        cursor: pointer;
     }
-    display: none;
-}
 
-.landing-page .event-popup {
-    display: block;
+    .cta-button:hover {
+        background-color: #8568b3;
+    }
+  }
+
+  .event-popup-close {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+
+    a {
+        color: #333;
+    }
+  }
+
+  .content-text {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+  }
 }
