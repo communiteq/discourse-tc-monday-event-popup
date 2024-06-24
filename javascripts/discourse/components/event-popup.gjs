@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { later, cancel } from '@ember/runloop';
 const cookie = require("discourse/lib/cookie").default;
 const { removeCookie } = require("discourse/lib/cookie")
 import { on } from "@ember/modifier";
@@ -10,7 +11,78 @@ let cookieExpDate = moment().add(1, 'year').toDate();
 
 export default class EventPopup extends Component {
   @service router;
+  @service site;
   @tracked closed = false;
+
+  @tracked days = '';
+  @tracked hours = '00';
+  @tracked minutes = '00';
+  @tracked seconds = '00';
+  countdownInterval = null;
+
+  constructor() {
+    super(...arguments);
+    this.setupCountdown();
+  }
+
+  setupCountdown() {
+    if (settings.countdown_to != "") {
+      this.startCountdown();
+    }
+  }
+
+  startCountdown() {
+    const targetDate = new Date(settings.countdown_to + ' UTC');
+
+    const updateCountdown = () => {
+      const now = new Date();
+      const timeDifference = targetDate - now;
+
+      if (timeDifference <= 0) {
+        this.days = '';
+        this.hours = '00';
+        this.minutes = '00';
+        this.seconds = '00';
+        if (this.countdownInterval) {
+          cancel(this.countdownInterval);
+        }
+        return;
+      }
+
+      const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+      this.days = days > 0 ? days.toString() : '';
+      this.hours = hours.toString().padStart(2, '0');
+      this.minutes = minutes.toString().padStart(2, '0');
+      this.seconds = seconds.toString().padStart(2, '0');
+
+      this.countdownInterval = later(this, updateCountdown, 1000);
+    };
+
+    updateCountdown();
+  }
+
+  willDestroy() {
+    super.willDestroy(...arguments);
+    if (this.countdownInterval) {
+      cancel(this.countdownInterval);
+    }
+  }
+
+  get divStyle() {
+    var style = "";
+    if (this.site.mobileView) {
+      style += settings.popup_height_mobile ? `height: ${settings.popup_height_mobile}px; ` : '';
+      style += settings.background_image_mobile_url ? `background-image: url(${settings.background_image_mobile_url});` : '';
+    } else {
+      style += settings.popup_height_desktop ? `height: ${settings.popup_height_desktop}px; ` : '';
+      style += settings.background_image_desktop_url ? `background-image: url(${settings.background_image_desktop_url});` : '';
+    }
+    return style;
+  }
 
   get showEventBanner() {
     let allowedRoutes = ['discovery', 'tags'];
@@ -54,7 +126,7 @@ export default class EventPopup extends Component {
 
   <template>
     {{#if this.showEventBanner}}
-      <div class="event-popup-div">
+      <div class="event-popup-div" style={{this.divStyle}}>
         <div class="wrapper">
           <div class="event-popup-content">
             <div class="content-text">
@@ -70,6 +142,16 @@ export default class EventPopup extends Component {
             </a>
           </div>
         </div>
+
+        <div class="countdown-timer">
+          <div class="countdown-elements">
+            <div class="days">{{this.days}}</div>
+            <div class="hours">{{this.hours}}</div>
+            <div class="minutes">{{this.minutes}}</div>
+            <div class="seconds">{{this.seconds}}</div>
+          </div>
+        </div>
+
       </div>
     {{/if}}
   </template>

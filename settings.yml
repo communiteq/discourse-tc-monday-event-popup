@@ -5,7 +5,7 @@ popup_enabled:
     en: "Enable the event popup"
 content_text:
   type: string
-  default: "Catch us  next at the upcoming community event happening 21 March"
+  default: "Catch us next at the upcoming community event happening 21 March"
   description:
     en: 'Text for the event banner.'
 button_text:
@@ -13,6 +13,26 @@ button_text:
   default: "Join us"
   description:
     en: 'Button text for the event banner.'
+content_text_color:
+  type: string
+  default: "000"
+  description:
+    en: 'Text color as RRGGBB for the content.'
+content_background_color:
+  type: string
+  default: "fff"
+  description:
+    en: 'Text color as RRGGBB for the background.'
+button_text_color:
+  type: string
+  default: "ffffff"
+  description:
+    en: 'Text color as RRGGBB for the button.'
+button_background_color:
+  type: string
+  default: "6161ff"
+  description:
+    en: 'Background color as RRGGBB for the button.'
 button_link:
   type: string
   default: "/"
@@ -23,3 +43,48 @@ update_version:
   default: "20230401"
   description:
     en: "Increase this version if you want to make the banner reappear for the people that closed it."
+countdown_to:
+  type: string
+  default: ""
+  description:
+    en: "Countdown to, as YYYY-MM-DD HH:MM (UTC time)"
+countdown_digits_font_size:
+  type: float
+  default: 1.5
+  description:
+    en: "Font size in em for countdown digits"
+countdown_digits_color:
+  type: string
+  default: "cccccc"
+  description:
+    en: "Color as RRGGBB for countdown digits"
+popup_height_desktop:
+  type: integer
+  default: 0
+  description:
+    en: "Height of the popup in pixels for desktop (0 = auto)"
+popup_height_mobile:
+  type: integer
+  default: 0
+  description:
+    en: "Height of the popup in pixels for mobile (0 = auto)"
+button_top:
+  type: integer
+  default: 0
+  description:
+    en: "Vertical adjustment for button"
+countdown_timer_top:
+  type: integer
+  default: 0
+  description:
+    en: "Vertical adjustment for countdown timer"
+background_image_desktop_url:
+  type: string
+  default: ""
+  description:
+    en: "Background image URL for desktop"
+background_image_mobile_url:
+  type: string
+  default: ""
+  description:
+    en: "Background image URL for mobile"
