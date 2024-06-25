@@ -31,13 +31,19 @@ export default class EventPopup extends Component {
     }
   }
 
+  parseDate(dateString) {
+    const [datePart, timePart] = dateString.split(' ');
+    const [year, month, day] = datePart.split('-').map(Number);
+    const [hours, minutes] = timePart.split(':').map(Number);
+    return new Date(Date.UTC(year, month - 1, day, hours, minutes));
+  }
+
   startCountdown() {
-    const targetDate = new Date(settings.countdown_to + ' UTC');
+    const targetDate = this.parseDate(settings.countdown_to);
 
     const updateCountdown = () => {
       const now = new Date();
       const timeDifference = targetDate - now;
-
       if (timeDifference <= 0) {
         this.days = '';
         this.hours = '00';
