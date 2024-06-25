@@ -3,14 +3,11 @@
   top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: ##{$content_background_color};
+  background-color: #{$content_background_color};
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   z-index: 1000;
-  max-width: 500px;
-  width: 100%;
-
   background-size: cover; /* Make sure the background image covers the whole div */
   background-position: center; /* Center the background image */
 
@@ -29,17 +26,16 @@
     .cta-button {
         display: inline-block;
         padding: 10px 20px;
-        background-color: ##{$button_background_color};
-        color: ##{$button_text_color};
+        background-color: #{$button_background_color};
+        color: #{$button_text_color};
         text-decoration: none;
         border-radius: 5px;
         cursor: pointer;
         position: relative;
-        top: #{$button_top}px;
     }
 
     .cta-button:hover {
-        background-color: ##{$button_background_color};
+        background-color: #{$button_background_color};
     }
   }
 
@@ -49,19 +45,18 @@
     right: -5px;
 
     a {
-        color: ##{$content_text_color};
+        color: #{$content_text_color};
     }
   }
 
   .content-text {
     font-size: 1.2em;
     margin-bottom: 20px;
-    color: ##{$content_text_color};
+    color: #{$content_text_color};
   }
 
   .countdown-timer {
     position: relative;
-    top: #{$countdown_timer_top}px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -70,10 +65,9 @@
       display: flex;
       gap: 10px;
       div {
-        width: 50px;
         text-align: center;
         font-weight: bold;
-        color: ##{$countdown_digits_color};
+        color: #{$countdown_digits_color};
         padding: 10px;
         font-size: #{$countdown-digits-font-size}em;
         padding-top: 7px;

@@ -1,0 +1,11 @@
+.event-popup-div {
+  .event-popup-content .cta-button {
+    top: #{$button_top_desktop}px;
+  }
+  .countdown-timer {
+    top: #{$countdown_timer_top_desktop}px;
+    .countdown-elements div {
+      width: #{$countdown_timer_digit_width_desktop}px;
+    }
+  }
+}

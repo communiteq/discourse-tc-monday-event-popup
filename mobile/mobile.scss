@@ -1,3 +1,15 @@
 .event-popup-div {
   max-width: 80%;
 }
+
+.event-popup-div {
+  .event-popup-content .cta-button {
+    top: #{$button_top_mobile}px;
+  }
+  .countdown-timer {
+    top: #{$countdown_timer_top_mobile}px;
+    .countdown-elements div {
+      width: #{$countdown_timer_digit_width_mobile}px;
+    }
+  }
+}

@@ -15,24 +15,24 @@ button_text:
     en: 'Button text for the event banner.'
 content_text_color:
   type: string
-  default: "000"
+  default: "#000000"
   description:
-    en: 'Text color as RRGGBB for the content.'
+    en: 'Text color as #RRGGBB for the content.'
 content_background_color:
   type: string
-  default: "fff"
+  default: "#ffffff"
   description:
-    en: 'Text color as RRGGBB for the background.'
+    en: 'Text color as #RRGGBB for the background.'
 button_text_color:
   type: string
-  default: "ffffff"
+  default: "#ffffff"
   description:
-    en: 'Text color as RRGGBB for the button.'
+    en: 'Text color as #RRGGBB for the button.'
 button_background_color:
   type: string
-  default: "6161ff"
+  default: "#6161ff"
   description:
-    en: 'Background color as RRGGBB for the button.'
+    en: 'Background color as #RRGGBB for the button.'
 button_link:
   type: string
   default: "/"
@@ -55,36 +55,66 @@ countdown_digits_font_size:
     en: "Font size in em for countdown digits"
 countdown_digits_color:
   type: string
-  default: "cccccc"
+  default: "#cccccc"
   description:
-    en: "Color as RRGGBB for countdown digits"
-popup_height_desktop:
-  type: integer
-  default: 0
-  description:
-    en: "Height of the popup in pixels for desktop (0 = auto)"
-popup_height_mobile:
-  type: integer
-  default: 0
-  description:
-    en: "Height of the popup in pixels for mobile (0 = auto)"
-button_top:
-  type: integer
-  default: 0
-  description:
-    en: "Vertical adjustment for button"
-countdown_timer_top:
-  type: integer
-  default: 0
-  description:
-    en: "Vertical adjustment for countdown timer"
+    en: "Color as #RRGGBB for countdown digits"
 background_image_desktop_url:
   type: string
   default: ""
   description:
     en: "Background image URL for desktop"
+popup_height_desktop:
+  type: integer
+  default: 0
+  description:
+    en: "Height of the popup in pixels for desktop (0 = auto for text). For background calculate aspect ratio for 500px wide."
+popup_width_desktop:
+  type: integer
+  default: 500
+  description:
+    en: "Width of the popup in pixels for desktop (0 = auto)"
+button_top_desktop:
+  type: integer
+  default: 0
+  description:
+    en: "Vertical adjustment for button (desktop)"
+countdown_timer_top_desktop:
+  type: integer
+  default: 0
+  description:
+    en: "Vertical adjustment for countdown timer (desktop)"
+countdown_timer_digit_width_desktop:
+  type: integer
+  default: 50
+  description:
+    en: "Digit width in px for countdown timer (desktop)"
 background_image_mobile_url:
   type: string
   default: ""
   description:
     en: "Background image URL for mobile"
+popup_height_mobile:
+  type: integer
+  default: 0
+  description:
+    en: "Height of the popup in pixels for mobile (0 = auto)"
+popup_width_mobile:
+  type: integer
+  default: 500
+  description:
+    en: "Width of the popup in pixels for mobile (0 = auto)"
+button_top_mobile:
+  type: integer
+  default: 0
+  description:
+    en: "Vertical adjustment for button (mobile)"
+countdown_timer_top_mobile:
+  type: integer
+  default: 0
+  description:
+    en: "Vertical adjustment for countdown timer (mobile)"
+countdown_timer_digit_width_mobile:
+  type: integer
+  default: 50
+  description:
+    en: "Digit width in px for countdown timer (mobile)"

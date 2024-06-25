@@ -81,9 +81,11 @@ export default class EventPopup extends Component {
   get divStyle() {
     var style = "";
     if (this.site.mobileView) {
+      style += settings.popup_width_mobile ? `width: ${settings.popup_width_mobile}px; ` : '';
       style += settings.popup_height_mobile ? `height: ${settings.popup_height_mobile}px; ` : '';
       style += settings.background_image_mobile_url ? `background-image: url(${settings.background_image_mobile_url});` : '';
     } else {
+      style += settings.popup_width_desktop ? `width: ${settings.popup_width_desktop}px; ` : '';
       style += settings.popup_height_desktop ? `height: ${settings.popup_height_desktop}px; ` : '';
       style += settings.background_image_desktop_url ? `background-image: url(${settings.background_image_desktop_url});` : '';
     }
