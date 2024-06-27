@@ -14,7 +14,7 @@ export default class EventPopup extends Component {
   @service site;
   @tracked closed = false;
 
-  @tracked days = '';
+  @tracked days = '0';
   @tracked hours = '00';
   @tracked minutes = '00';
   @tracked seconds = '00';
@@ -32,10 +32,16 @@ export default class EventPopup extends Component {
   }
 
   parseDate(dateString) {
-    const [datePart, timePart] = dateString.split(' ');
-    const [year, month, day] = datePart.split('-').map(Number);
-    const [hours, minutes] = timePart.split(':').map(Number);
-    return new Date(Date.UTC(year, month - 1, day, hours, minutes));
+    try {
+      const [datePart, timePart] = dateString.split(' ');
+      const [year, month, day] = datePart.split('-').map(Number);
+      const [hours, minutes] = timePart.split(':').map(Number);
+      return new Date(Date.UTC(year, month - 1, day, hours, minutes));
+    }
+    catch (e) {
+      console.log("Event popup: error parsing date/time " + dateString);
+      return new Date;
+    }
   }
 
   startCountdown() {
@@ -45,7 +51,7 @@ export default class EventPopup extends Component {
       const now = new Date();
       const timeDifference = targetDate - now;
       if (timeDifference <= 0) {
-        this.days = '';
+        this.days = '0';
         this.hours = '00';
         this.minutes = '00';
         this.seconds = '00';
@@ -60,7 +66,7 @@ export default class EventPopup extends Component {
       const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
-      this.days = days > 0 ? days.toString() : '';
+      this.days = days > 0 ? days.toString() : '0';
       this.hours = hours.toString().padStart(2, '0');
       this.minutes = minutes.toString().padStart(2, '0');
       this.seconds = seconds.toString().padStart(2, '0');
@@ -76,6 +82,10 @@ export default class EventPopup extends Component {
     if (this.countdownInterval) {
       cancel(this.countdownInterval);
     }
+  }
+
+  get showCountdown() {
+    return (settings.countdown_to != "");
   }
 
   get divStyle() {
@@ -151,6 +161,7 @@ export default class EventPopup extends Component {
           </div>
         </div>
 
+        {{#if this.showCountdown}}
         <div class="countdown-timer">
           <div class="countdown-elements">
             <div class="days">{{this.days}}</div>
@@ -159,7 +170,7 @@ export default class EventPopup extends Component {
             <div class="seconds">{{this.seconds}}</div>
           </div>
         </div>
-
+        {{/if}}
       </div>
     {{/if}}
   </template>
