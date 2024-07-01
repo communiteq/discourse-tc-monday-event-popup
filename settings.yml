@@ -118,3 +118,8 @@ countdown_timer_digit_width_mobile:
   default: 50
   description:
     en: "Digit width in px for countdown timer (mobile)"
+cookie_name:
+  type: string
+  default: "event_popup_closed"
+  description:
+    en: "Name of cookie that remembers when popup is closed. Change only when you have this theme installed multiple times."

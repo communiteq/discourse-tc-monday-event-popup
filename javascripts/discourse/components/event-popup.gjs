@@ -111,11 +111,11 @@ export default class EventPopup extends Component {
       return false;
     }
 
-    var closed_cookie = cookie("event_popup_closed");
+    var closed_cookie = cookie(settings.cookie_name);
     if (closed_cookie) {
       var cookieValue = JSON.parse(closed_cookie);
       if(cookieValue.name != settings.update_version) {
-        removeCookie("event_popup_closed", {path: '/'} );
+        removeCookie(settings.cookie_name, {path: '/'} );
       } else {
         this.closed = true;
       }
@@ -139,7 +139,7 @@ export default class EventPopup extends Component {
   closePopup() {
     this.closed = true;
     let bannerState = { name: settings.update_version, closed: "true" };
-    cookie("event_popup_closed", JSON.stringify(bannerState), { expires: cookieExpDate, path: '/' });
+    cookie(settings.cookie_name, JSON.stringify(bannerState), { expires: cookieExpDate, path: '/' });
   }
 
   <template>
